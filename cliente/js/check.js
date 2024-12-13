@@ -4,15 +4,17 @@ export class Check {
         this.client = client;
         this.states = [];
     }
-
+    // Metodo para cambiar el estado de cada toggle
     changeValue(name, value) {
         const data = this.states.find((item) => item.name == name);
         if(value) {
             data.state = true;
+            
         }
-        console.log(this.states);
+        console.log(data);
     }
-
+    // metodo para añadir todos los elemntos dinamicos de cada toggle y ademas 
+    // guardar datos sobre cada uno
     addCheck(name) {
         this.states.push({
             name : name,
