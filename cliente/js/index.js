@@ -25,14 +25,14 @@ const Cliente = {
     }
 }
 
-const check1 = new Check(document.getElementById("grupo1"),Cliente);
+const check1 = Check.getInstance(document.getElementById("grupo1"),Cliente);
 check1.addCheck("riego1");
 check1.addCheck("riego2");
 
-const check2 = new Check(document.getElementById("grupo2"),Cliente);
+const check2 = Check.getInstance(document.getElementById("grupo2"),Cliente);
 check2.addCheck("riego1");
 check2.addCheck("riego2");
 
-const check3 = new Check(document.getElementById("grupo3"),Cliente);
+const check3 = Check.getInstance(document.getElementById("grupo3"),Cliente);
 check3.addCheck("riego1");
 check3.addCheck("riego2");

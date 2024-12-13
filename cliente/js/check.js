@@ -1,21 +1,28 @@
 export class Check {
-    constructor(parent,client) {
+    static #instance = null;
+    constructor(parent, client) {
+        if (Check.#instance) {
+            throw new Error("Use Check.getInstance() to access the singleton instance.");
+        }
         this.parent = parent;
         this.client = client;
         this.states = [];
     }
 
+    // Método estático para obtener la instancia única
+    static getInstance(parent = null, client = null) {
+        if (!Check.#instance) {
+            Check.#instance = new Check(parent, client);
+        }
+        return Check.#instance;
+    }
+
     changeValue(name, value) {
         const data = this.states.find((item) => item.name == name);
-        // hacer algo más.
-        
+        data.group = this.parent;
         if(value) {
             data.state = true;
-            
-        }else {
-            data.state = false;
         }
-        
         console.log(this.states);
     }
 
@@ -23,7 +30,7 @@ export class Check {
         this.states.push({
             name : name,
             state : false,
-            group : this.parent
+            group : null,
         })
         const check = document.createElement("label");
         check.classList.add("form-switch");
@@ -41,3 +48,4 @@ export class Check {
         })
     }
 }
+
