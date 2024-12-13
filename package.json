@@ -1,0 +1,24 @@
+{
+  "name": "practica2dawes",
+  "version": "1.0.0",
+  "description": "Repositorio para subir prueba 2 desarrollo web entorno cliente",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexbaaaa/practica2dawes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexbaaaa/practica2dawes/issues"
+  },
+  "homepage": "https://github.com/alexbaaaa/practica2dawes#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
