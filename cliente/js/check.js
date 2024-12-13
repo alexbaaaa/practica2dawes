@@ -1,25 +1,12 @@
 export class Check {
-    static #instance = null;
-    constructor(parent, client) {
-        if (Check.#instance) {
-            throw new Error("Use Check.getInstance() to access the singleton instance.");
-        }
+    constructor(parent,client) {
         this.parent = parent;
         this.client = client;
         this.states = [];
     }
 
-    // Método estático para obtener la instancia única
-    static getInstance(parent = null, client = null) {
-        if (!Check.#instance) {
-            Check.#instance = new Check(parent, client);
-        }
-        return Check.#instance;
-    }
-
     changeValue(name, value) {
         const data = this.states.find((item) => item.name == name);
-        data.group = this.parent;
         if(value) {
             data.state = true;
         }
@@ -30,7 +17,7 @@ export class Check {
         this.states.push({
             name : name,
             state : false,
-            group : null,
+            group : this.parent
         })
         const check = document.createElement("label");
         check.classList.add("form-switch");
